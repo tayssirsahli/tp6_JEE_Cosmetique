@@ -1,6 +1,7 @@
 package metier.entities;
 
 import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -18,15 +19,17 @@ public class Cosmetique implements Serializable {
 	@Column(name = "NOMCOSMETIQUE")
 	private String nomCosmetique;
 	private double prix;
+	private Classification classification;
 
 	public Cosmetique() {
 		super();
 	}
 
-	public Cosmetique(String nomCosmetique, double prix) {
+	public Cosmetique(String nomCosmetique, double prix, Classification clas) {
 		super();
 		this.nomCosmetique = nomCosmetique;
 		this.prix = prix;
+		this.setClassification(clas);
 	}
 
 	public Long getIdCosmetique() {
@@ -51,6 +54,14 @@ public class Cosmetique implements Serializable {
 
 	public void setPrix(double prix) {
 		this.prix = prix;
+	}
+
+	public Classification getClassification() {
+		return classification;
+	}
+
+	public void setClassification(Classification classification) {
+		this.classification = classification;
 	}
 
 }

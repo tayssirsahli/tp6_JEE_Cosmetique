@@ -1,8 +1,11 @@
 package dao;
 
 import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
+
+import metier.entities.Classification;
 import metier.entities.Cosmetique;
 import util.JPAutil;
 
@@ -21,8 +24,7 @@ public class CosmetiqueDaoImpl implements ICosmetiqueDao {
 
 	@Override
 	public List<Cosmetique> CosmetiquesParMC(String mc) {
-		List<Cosmetique> prods = entityManager.createQuery("select c from Cosmetique c where c.nomCosmetique like :mc")
-				.setParameter("mc", "%" + mc + "%").getResultList();
+		List<Cosmetique> prods = entityManager.createQuery("select c from Cosmetique c where c.nomCosmetique like :mc").setParameter("mc", "%" + mc + "%").getResultList();
 
 		return prods;
 	}
@@ -47,5 +49,10 @@ public class CosmetiqueDaoImpl implements ICosmetiqueDao {
 		entityManager.getTransaction().begin();
 		entityManager.remove(cosmetique);
 		entityManager.getTransaction().commit();
+	}
+
+	public Classification saveClassification(Classification classification) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

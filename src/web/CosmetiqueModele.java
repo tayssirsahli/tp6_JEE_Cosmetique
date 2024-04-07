@@ -2,6 +2,7 @@ package web;
 
 import java.util.ArrayList;
 import java.util.List;
+
 import metier.entities.Cosmetique;
 
 public class CosmetiqueModele {

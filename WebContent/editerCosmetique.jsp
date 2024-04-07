@@ -32,6 +32,16 @@
 						<label class="control-label">Prix :</label> <input type="text"
 							name="prix" class="form-control" value="${Cosmetique.prix}" />
 					</div>
+					<div class="form-group">
+						<select name="classification" class="form-control">
+							<option value="${Cosmetique.classification.idClas}" selected>${Cosmetique.classification.nomClas}</option>
+							<c:forEach items="${catModel.classifications}" var="cat">
+								<c:if test="${cat.idClas != Cosmetique.classification.idClas}">
+									<option value="${cat.idClas}">${cat.nomClas}</option>
+								</c:if>
+							</c:forEach>
+						</select>
+					</div>
 					<div>
 						<button type="submit" class="btn btn-primary">Modifier</button>
 					</div>
